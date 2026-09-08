@@ -6,8 +6,7 @@
 
     <title>Seven Digital | Sites, Automação e Soluções Digitais</title>
 
-    <meta name="description"
-          content="Seven Digital — criação de sites, landing pages, automações e soluções digitais para empresas e profissionais.">
+    <meta name="description" content="Seven Digital - Criamos sites profissionais, landing pages, formulários, automações e soluções digitais para empresas.">
 
     <style>
         * {
@@ -22,8 +21,8 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #08090d;
-            color: #f5f5f5;
+            background: #08080d;
+            color: #fff;
             line-height: 1.6;
         }
 
@@ -32,196 +31,187 @@
             color: inherit;
         }
 
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
         /* HEADER */
 
         header {
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
             z-index: 1000;
-            background: rgba(8, 9, 13, 0.94);
-            border-bottom: 1px solid #20232c;
+            background: rgba(8, 8, 13, 0.94);
             backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .nav {
-            max-width: 1180px;
-            margin: auto;
-            padding: 18px 25px;
+            min-height: 75px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 20px;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 1px;
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         .logo span {
-            color: #7c5cff;
-        }
-
-        .logo small {
-            display: block;
-            color: #777;
-            font-size: 8px;
-            letter-spacing: 4px;
-            margin-top: -4px;
+            color: #8b5cf6;
         }
 
         nav {
             display: flex;
-            gap: 27px;
+            gap: 25px;
+            align-items: center;
         }
 
         nav a {
-            color: #aaa;
+            color: #bbb;
             font-size: 14px;
-            transition: .3s;
+            transition: 0.3s;
         }
 
         nav a:hover {
-            color: #9b83ff;
+            color: #fff;
         }
 
         .nav-button {
-            background: #7c5cff;
-            color: white;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
             padding: 11px 18px;
-            border-radius: 6px;
-            font-size: 13px;
+            border-radius: 10px;
+            color: #fff;
             font-weight: bold;
         }
 
         /* HERO */
 
         .hero {
-            min-height: 100vh;
-            padding: 155px 25px 90px;
+            min-height: 700px;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-            background:
-                radial-gradient(circle at 80% 25%, rgba(124,92,255,.28), transparent 35%),
-                radial-gradient(circle at 20% 80%, rgba(53,211,153,.10), transparent 30%),
-                #08090d;
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #7c3aed;
+            filter: blur(180px);
+            opacity: 0.18;
+            top: -100px;
+            right: -100px;
         }
 
         .hero-content {
-            max-width: 1180px;
-            width: 100%;
-            margin: auto;
+            max-width: 780px;
+            position: relative;
+            z-index: 2;
         }
 
         .badge {
             display: inline-block;
-            border: 1px solid #39324f;
-            background: #15121f;
-            color: #a997ff;
-            padding: 8px 14px;
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            max-width: 850px;
-            font-size: clamp(45px, 8vw, 82px);
-            line-height: 1.02;
-            letter-spacing: -2px;
+            padding: 8px 15px;
+            border: 1px solid rgba(139,92,246,0.5);
+            background: rgba(124,58,237,0.1);
+            color: #c4b5fd;
+            border-radius: 50px;
+            font-size: 13px;
             margin-bottom: 25px;
         }
 
-        .hero h1 span {
-            color: #8c72ff;
+        h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.02;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #a855f7;
         }
 
         .hero p {
             max-width: 650px;
-            color: #9ea2ad;
+            color: #aaa;
             font-size: 18px;
-            margin-bottom: 32px;
+            margin-bottom: 35px;
         }
 
         .buttons {
             display: flex;
-            gap: 14px;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 15px 25px;
-            border-radius: 6px;
-            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 23px;
+            border-radius: 12px;
             font-weight: bold;
-            transition: .3s;
+            transition: 0.3s;
+            cursor: pointer;
         }
 
         .btn-primary {
-            background: #7c5cff;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
             color: white;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(124,92,255,.25);
+            box-shadow: 0 12px 30px rgba(124,58,237,0.3);
         }
 
         .btn-secondary {
-            border: 1px solid #363945;
-            color: white;
+            border: 1px solid #333;
+            color: #ddd;
         }
 
         .btn-secondary:hover {
-            border-color: #7c5cff;
+            border-color: #8b5cf6;
         }
 
         /* STATS */
 
         .stats {
-            padding: 30px 25px;
-            background: #0d0f14;
-            border-top: 1px solid #20232c;
-            border-bottom: 1px solid #20232c;
+            padding: 35px 0;
+            border-top: 1px solid #1d1d25;
+            border-bottom: 1px solid #1d1d25;
         }
 
         .stats-grid {
-            max-width: 1180px;
-            margin: auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4,1fr);
             gap: 20px;
-        }
-
-        .stat {
             text-align: center;
         }
 
-        .stat strong {
-            display: block;
-            color: #8c72ff;
-            font-size: 28px;
+        .stat h3 {
+            font-size: 32px;
+            color: #a855f7;
         }
 
-        .stat span {
-            color: #777;
-            font-size: 12px;
+        .stat p {
+            color: #888;
+            font-size: 13px;
         }
 
         /* SECTIONS */
 
         section {
-            padding: 95px 25px;
-        }
-
-        .container {
-            max-width: 1180px;
-            margin: auto;
+            padding: 100px 0;
         }
 
         .section-title {
@@ -230,216 +220,177 @@
         }
 
         .section-title small {
-            color: #8c72ff;
-            font-size: 11px;
+            color: #a855f7;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             font-weight: bold;
-            letter-spacing: 3px;
         }
 
         .section-title h2 {
-            font-size: 43px;
-            margin-top: 9px;
+            font-size: 42px;
+            margin: 10px 0;
         }
 
         .section-title p {
+            color: #888;
             max-width: 650px;
-            margin: 13px auto 0;
-            color: #858995;
+            margin: auto;
         }
 
         /* SERVICES */
 
-        .services {
-            background: #08090d;
-        }
-
-        .service-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3,1fr);
             gap: 20px;
         }
 
-        .service {
-            background: #101218;
-            border: 1px solid #22252e;
-            padding: 32px 27px;
-            border-radius: 10px;
-            transition: .3s;
+        .card {
+            background: #101017;
+            border: 1px solid #20202a;
+            padding: 30px;
+            border-radius: 18px;
+            transition: 0.3s;
         }
 
-        .service:hover {
-            transform: translateY(-6px);
-            border-color: #51418e;
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #6d28d9;
         }
 
-        .service-icon {
+        .icon {
             width: 52px;
             height: 52px;
-            border-radius: 10px;
-            background: #19152a;
-            border: 1px solid #39305d;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 23px;
+            background: rgba(124,58,237,0.15);
+            border-radius: 14px;
+            font-size: 25px;
             margin-bottom: 20px;
         }
 
-        .service h3 {
-            font-size: 20px;
+        .card h3 {
             margin-bottom: 10px;
+            font-size: 20px;
         }
 
-        .service p {
-            color: #858995;
+        .card p {
+            color: #888;
             font-size: 14px;
         }
 
         /* PROCESS */
 
         .process {
-            background: #0e1015;
+            background: #0d0d13;
         }
 
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
         }
 
-        .process-card {
-            position: relative;
-            padding: 28px 22px;
-            background: #12141a;
-            border: 1px solid #252832;
-            border-radius: 10px;
+        .step {
+            text-align: center;
         }
 
-        .number {
-            color: #7c5cff;
-            font-size: 13px;
+        .step-number {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#7c3aed,#a855f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            margin-bottom: 18px;
+            font-size: 20px;
         }
 
-        .process-card h3 {
+        .step h3 {
             margin-bottom: 8px;
         }
 
-        .process-card p {
-            color: #818590;
-            font-size: 13px;
+        .step p {
+            color: #888;
+            font-size: 14px;
         }
 
         /* PORTFOLIO */
 
-        .portfolio {
-            background: #08090d;
-        }
-
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3,1fr);
             gap: 22px;
         }
 
         .project {
-            background: #101218;
-            border: 1px solid #242731;
-            border-radius: 10px;
+            background: #101017;
+            border: 1px solid #22222c;
+            border-radius: 18px;
             overflow: hidden;
-            transition: .3s;
+            transition: 0.3s;
         }
 
         .project:hover {
-            transform: translateY(-6px);
-            border-color: #51418e;
+            transform: translateY(-5px);
+            border-color: #7c3aed;
         }
 
         .project-image {
-            height: 190px;
+            height: 180px;
+            background: linear-gradient(135deg,#171722,#252033);
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            background: linear-gradient(135deg, #272044, #151722);
-        }
-
-        .project:nth-child(2) .project-image {
-            background: linear-gradient(135deg, #28251c, #17181d);
-        }
-
-        .project:nth-child(3) .project-image {
-            background: linear-gradient(135deg, #19312d, #14191c);
-        }
-
-        .project:nth-child(4) .project-image {
-            background: linear-gradient(135deg, #3a241b, #17181d);
-        }
-
-        .project:nth-child(5) .project-image {
-            background: linear-gradient(135deg, #252a2d, #141619);
-        }
-
-        .project:nth-child(6) .project-image {
-            background: linear-gradient(135deg, #1d2938, #14171c);
-        }
-
-        .project-image strong {
-            font-size: 30px;
-            font-weight: 900;
+            font-size: 55px;
         }
 
         .project-info {
-            padding: 23px;
-        }
-
-        .project-info small {
-            color: #8c72ff;
-            font-size: 10px;
-            font-weight: bold;
-            letter-spacing: 2px;
+            padding: 22px;
         }
 
         .project-info h3 {
-            font-size: 20px;
-            margin: 5px 0 8px;
+            margin-bottom: 7px;
         }
 
         .project-info p {
-            color: #858995;
+            color: #888;
             font-size: 13px;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .project-link {
-            color: #a997ff;
-            font-size: 13px;
+            color: #a855f7;
             font-weight: bold;
+            font-size: 14px;
         }
 
         /* BENEFITS */
 
         .benefits {
-            background: #11131a;
+            background: #0d0d13;
         }
 
-        .benefit-grid {
+        .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2,1fr);
             gap: 20px;
         }
 
         .benefit {
             display: flex;
             gap: 18px;
+            background: #101017;
+            border: 1px solid #20202a;
             padding: 25px;
-            background: #15171e;
-            border: 1px solid #252832;
-            border-radius: 10px;
+            border-radius: 16px;
         }
 
-        .benefit-icon {
+        .check {
+            color: #a855f7;
             font-size: 25px;
         }
 
@@ -448,124 +399,129 @@
         }
 
         .benefit p {
-            color: #858995;
-            font-size: 13px;
+            color: #888;
+            font-size: 14px;
         }
 
         /* TESTIMONIALS */
 
         .testimonials {
-            background: #08090d;
-        }
-
-        .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3,1fr);
             gap: 20px;
         }
 
         .testimonial {
-            padding: 30px;
-            background: #101218;
-            border: 1px solid #252832;
-            border-radius: 10px;
+            background: #101017;
+            border: 1px solid #20202a;
+            padding: 28px;
+            border-radius: 18px;
         }
 
         .stars {
-            color: #a997ff;
-            letter-spacing: 3px;
+            color: #fbbf24;
             margin-bottom: 15px;
         }
 
         .testimonial p {
-            color: #90939d;
-            font-style: italic;
+            color: #aaa;
             font-size: 14px;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
-        .testimonial strong {
-            font-size: 13px;
+        .person {
+            font-weight: bold;
+        }
+
+        .person span {
+            display: block;
+            color: #777;
+            font-size: 12px;
+            font-weight: normal;
         }
 
         /* CTA */
 
         .cta {
-            text-align: center;
-            background:
-                radial-gradient(circle at center, rgba(124,92,255,.25), transparent 45%),
-                #11131a;
-            border-top: 1px solid #242731;
-            border-bottom: 1px solid #242731;
+            padding: 90px 0;
         }
 
-        .cta h2 {
-            font-size: 46px;
+        .cta-box {
+            background: linear-gradient(135deg,#211044,#151021);
+            border: 1px solid #4c1d95;
+            border-radius: 25px;
+            padding: 70px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: #8b5cf6;
+            filter: blur(130px);
+            opacity: 0.18;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .cta-box > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-box h2 {
+            font-size: 42px;
             margin-bottom: 15px;
         }
 
-        .cta p {
-            max-width: 650px;
-            margin: auto auto 28px;
-            color: #9296a1;
+        .cta-box p {
+            color: #aaa;
+            margin-bottom: 30px;
         }
 
         /* CONTACT */
 
-        .contact {
-            background: #08090d;
-        }
-
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
 
         .contact-box {
-            text-align: center;
-            padding: 30px;
-            background: #101218;
-            border: 1px solid #242731;
-            border-radius: 10px;
-        }
-
-        .contact-icon {
-            font-size: 25px;
-            margin-bottom: 12px;
+            background: #101017;
+            border: 1px solid #20202a;
+            padding: 35px;
+            border-radius: 18px;
         }
 
         .contact-box h3 {
-            margin-bottom: 7px;
+            margin-bottom: 12px;
         }
 
         .contact-box p {
-            color: #858995;
-            font-size: 13px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+            color: #bbb;
         }
 
         /* FOOTER */
 
         footer {
-            background: #050609;
-            border-top: 1px solid #20232c;
-            padding: 35px 20px;
+            border-top: 1px solid #20202a;
+            padding: 35px 0;
+            color: #777;
             text-align: center;
-        }
-
-        .footer-logo {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .footer-logo span {
-            color: #7c5cff;
-        }
-
-        footer p {
-            color: #656872;
-            font-size: 12px;
+            font-size: 13px;
         }
 
         /* WHATSAPP */
@@ -574,61 +530,87 @@
             position: fixed;
             right: 20px;
             bottom: 20px;
-            z-index: 999;
-            width: 58px;
-            height: 58px;
+            width: 62px;
+            height: 62px;
             border-radius: 50%;
             background: #25D366;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,.35);
+            font-size: 30px;
+            z-index: 999;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
         }
 
         /* MOBILE */
 
-        @media (max-width: 800px) {
+        @media (max-width: 850px) {
 
             nav {
                 display: none;
             }
 
-            .nav-button {
-                padding: 9px 13px;
+            .hero {
+                min-height: 600px;
             }
 
-            .stats-grid {
+            .stats-grid,
+            .services-grid,
+            .process-grid,
+            .portfolio-grid,
+            .testimonials {
                 grid-template-columns: 1fr 1fr;
             }
 
-            .service-grid,
-            .portfolio-grid,
-            .testimonial-grid,
+            .benefits-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .process-grid {
-                grid-template-columns: 1fr 1fr;
+        @media (max-width: 600px) {
+
+            section {
+                padding: 70px 0;
             }
 
-            .benefit-grid {
+            h1 {
+                font-size: 45px;
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .stats-grid,
+            .services-grid,
+            .process-grid,
+            .portfolio-grid,
+            .testimonials {
                 grid-template-columns: 1fr;
             }
 
-            .hero {
-                padding-top: 135px;
+            .buttons {
+                flex-direction: column;
             }
 
-            section {
-                padding: 70px 20px;
+            .btn {
+                width: 100%;
             }
 
-            .section-title h2,
-            .cta h2 {
-                font-size: 34px;
+            .cta-box h2 {
+                font-size: 32px;
             }
         }
     </style>
@@ -637,64 +619,67 @@
 <body>
 
 <header>
+    <div class="container nav">
 
-    <div class="nav">
-
-        <a href="#" class="logo">
-            SEVEN<span>DIGITAL</span>
-            <small>SOLUÇÕES DIGITAIS</small>
+        <a href="#inicio" class="logo">
+            Seven<span>Digital</span>
         </a>
 
         <nav>
             <a href="#servicos">Serviços</a>
             <a href="#processo">Como funciona</a>
-            <a href="#portfolio">Portfólio</a>
+            <a href="#portfolio">Projetos</a>
             <a href="#contato">Contato</a>
+
+            <a
+                href="https://wa.me/5511914425820?text=Ol%C3%A1!%20Conheci%20a%20Seven%20Digital%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os."
+                target="_blank"
+                class="nav-button">
+                Falar no WhatsApp
+            </a>
         </nav>
 
-        <a
-            href="https://wa.me/5500000000000"
-            class="nav-button">
-            Solicitar orçamento
-        </a>
-
     </div>
-
 </header>
 
 
-<section class="hero">
+<!-- HERO -->
 
-    <div class="hero-content">
+<section class="hero" id="inicio">
 
-        <div class="badge">
-            ✦ SITES • AUTOMAÇÃO • IA • SOLUÇÕES DIGITAIS
-        </div>
+    <div class="container">
 
-        <h1>
-            Transformamos ideias em
-            <span>presença digital.</span>
-        </h1>
+        <div class="hero-content">
 
-        <p>
-            Criamos sites profissionais, landing pages, formulários,
-            automações e soluções digitais para empresas e profissionais
-            que querem crescer no ambiente online.
-        </p>
+            <div class="badge">
+                🚀 Soluções digitais para empresas
+            </div>
 
-        <div class="buttons">
+            <h1>
+                Transformamos ideias em
+                <span>soluções digitais.</span>
+            </h1>
 
-            <a
-                href="https://wa.me/5500000000000"
-                class="btn btn-primary">
-                🚀 Quero meu projeto
-            </a>
+            <p>
+                Criamos sites profissionais, landing pages, formulários,
+                automações e soluções inteligentes para ajudar sua empresa
+                a vender mais e crescer no digital.
+            </p>
 
-            <a
-                href="#portfolio"
-                class="btn btn-secondary">
-                Ver nosso portfólio
-            </a>
+            <div class="buttons">
+
+                <a
+                    href="https://wa.me/5511914425820?text=Ol%C3%A1!%20Conheci%20a%20Seven%20Digital%20pelo%20site%20e%20quero%20fazer%20um%20projeto."
+                    target="_blank"
+                    class="btn btn-primary">
+                    Quero meu projeto
+                </a>
+
+                <a href="#portfolio" class="btn btn-secondary">
+                    Ver projetos
+                </a>
+
+            </div>
 
         </div>
 
@@ -702,29 +687,35 @@
 
 </section>
 
+
+<!-- STATS -->
 
 <section class="stats">
 
-    <div class="stats-grid">
+    <div class="container">
 
-        <div class="stat">
-            <strong>6+</strong>
-            <span>Projetos demonstrativos</span>
-        </div>
+        <div class="stats-grid">
 
-        <div class="stat">
-            <strong>100%</strong>
-            <span>Projetos personalizados</span>
-        </div>
+            <div class="stat">
+                <h3>100%</h3>
+                <p>Projetos personalizados</p>
+            </div>
 
-        <div class="stat">
-            <strong>24h</strong>
-            <span>Resposta comercial</span>
-        </div>
+            <div class="stat">
+                <h3>24h</h3>
+                <p>Atendimento online</p>
+            </div>
 
-        <div class="stat">
-            <strong>7</strong>
-            <span>Foco em soluções digitais</span>
+            <div class="stat">
+                <h3>+6</h3>
+                <p>Projetos demonstrativos</p>
+            </div>
+
+            <div class="stat">
+                <h3>∞</h3>
+                <p>Possibilidades digitais</p>
+            </div>
+
         </div>
 
     </div>
@@ -732,107 +723,86 @@
 </section>
 
 
-<section class="services" id="servicos">
+<!-- SERVIÇOS -->
+
+<section id="servicos">
 
     <div class="container">
 
         <div class="section-title">
 
-            <small>O QUE FAZEMOS</small>
+            <small>O que fazemos</small>
 
             <h2>Soluções para o seu negócio</h2>
 
             <p>
-                Do primeiro clique até a conversão:
-                criamos ferramentas digitais pensadas para resultados.
+                Desenvolvemos soluções digitais pensadas para
+                profissionalizar sua presença online e facilitar
+                seus processos.
             </p>
 
         </div>
 
 
-        <div class="service-grid">
+        <div class="services-grid">
 
-            <div class="service">
-
-                <div class="service-icon">🌐</div>
-
+            <div class="card">
+                <div class="icon">🌐</div>
                 <h3>Sites Profissionais</h3>
-
                 <p>
-                    Sites modernos, responsivos e personalizados
-                    para apresentar sua empresa e conquistar novos clientes.
+                    Sites modernos, rápidos, responsivos e preparados
+                    para apresentar sua empresa de forma profissional.
                 </p>
-
             </div>
 
 
-            <div class="service">
-
-                <div class="service-icon">🎯</div>
-
+            <div class="card">
+                <div class="icon">🎯</div>
                 <h3>Landing Pages</h3>
-
                 <p>
                     Páginas focadas em conversão para campanhas,
-                    produtos, serviços e geração de leads.
+                    produtos, serviços e captação de clientes.
                 </p>
-
             </div>
 
 
-            <div class="service">
-
-                <div class="service-icon">📝</div>
-
+            <div class="card">
+                <div class="icon">📝</div>
                 <h3>Formulários</h3>
-
                 <p>
                     Formulários personalizados para captar informações,
-                    pedidos, agendamentos e potenciais clientes.
+                    pedidos, contatos e leads.
                 </p>
-
             </div>
 
 
-            <div class="service">
-
-                <div class="service-icon">🤖</div>
-
+            <div class="card">
+                <div class="icon">⚙️</div>
                 <h3>Automação</h3>
-
                 <p>
-                    Processos automatizados para reduzir tarefas repetitivas
-                    e melhorar o atendimento.
+                    Automatize tarefas repetitivas e economize tempo
+                    utilizando ferramentas digitais.
                 </p>
-
             </div>
 
 
-            <div class="service">
-
-                <div class="service-icon">🧠</div>
-
+            <div class="card">
+                <div class="icon">🤖</div>
                 <h3>Soluções com IA</h3>
-
                 <p>
-                    Aplicações práticas de inteligência artificial
-                    para otimizar processos e aumentar produtividade.
+                    Aplicações e processos utilizando inteligência
+                    artificial para melhorar produtividade e atendimento.
                 </p>
-
             </div>
 
 
-            <div class="service">
-
-                <div class="service-icon">📱</div>
-
+            <div class="card">
+                <div class="icon">🔗</div>
                 <h3>Integrações</h3>
-
                 <p>
-                    Conectamos ferramentas e canais digitais para
-                    criar processos mais simples e eficientes.
+                    Conectamos ferramentas, formulários, sites,
+                    WhatsApp e outros serviços.
                 </p>
-
             </div>
 
         </div>
@@ -841,6 +811,8 @@
 
 </section>
 
+
+<!-- PROCESSO -->
 
 <section class="process" id="processo">
 
@@ -848,12 +820,13 @@
 
         <div class="section-title">
 
-            <small>COMO FUNCIONA</small>
+            <small>Processo</small>
 
             <h2>Do projeto à entrega</h2>
 
             <p>
-                Um processo simples, transparente e pensado para você.
+                Um processo simples, transparente e pensado
+                para facilitar sua experiência.
             </p>
 
         </div>
@@ -861,57 +834,53 @@
 
         <div class="process-grid">
 
-            <div class="process-card">
+            <div class="step">
 
-                <div class="number">01 — CONVERSA</div>
+                <div class="step-number">1</div>
 
-                <h3>Entendemos sua ideia</h3>
+                <h3>Conversa</h3>
 
                 <p>
-                    Você explica o que precisa e quais são
-                    seus objetivos.
+                    Entendemos sua necessidade e seus objetivos.
                 </p>
 
             </div>
 
 
-            <div class="process-card">
+            <div class="step">
 
-                <div class="number">02 — PLANEJAMENTO</div>
+                <div class="step-number">2</div>
 
-                <h3>Montamos a solução</h3>
+                <h3>Planejamento</h3>
 
                 <p>
-                    Definimos estrutura, funcionalidades e
-                    experiência do usuário.
+                    Definimos a estrutura e as melhores soluções.
                 </p>
 
             </div>
 
 
-            <div class="process-card">
+            <div class="step">
 
-                <div class="number">03 — DESENVOLVIMENTO</div>
+                <div class="step-number">3</div>
 
-                <h3>Criamos o projeto</h3>
+                <h3>Desenvolvimento</h3>
 
                 <p>
-                    Transformamos a ideia em uma solução
-                    digital profissional.
+                    Criamos o projeto com foco em qualidade.
                 </p>
 
             </div>
 
 
-            <div class="process-card">
+            <div class="step">
 
-                <div class="number">04 — ENTREGA</div>
+                <div class="step-number">4</div>
 
-                <h3>Projeto no ar</h3>
+                <h3>Entrega</h3>
 
                 <p>
-                    Entregamos tudo pronto para você começar
-                    a utilizar.
+                    Publicamos e entregamos sua solução pronta.
                 </p>
 
             </div>
@@ -923,19 +892,21 @@
 </section>
 
 
-<section class="portfolio" id="portfolio">
+<!-- PORTFÓLIO -->
+
+<section id="portfolio">
 
     <div class="container">
 
         <div class="section-title">
 
-            <small>PORTFÓLIO</small>
+            <small>Portfólio</small>
 
             <h2>Projetos demonstrativos</h2>
 
             <p>
-                Alguns exemplos de soluções que podemos criar
-                para diferentes tipos de negócio.
+                Alguns exemplos de projetos desenvolvidos
+                para diferentes tipos de negócios.
             </p>
 
         </div>
@@ -944,27 +915,27 @@
         <div class="portfolio-grid">
 
 
+            <!-- BURGER -->
+
             <div class="project">
 
                 <div class="project-image">
-                    <strong>🍔</strong>
+                    🍔
                 </div>
 
                 <div class="project-info">
-
-                    <small>RESTAURANTE</small>
 
                     <h3>Burger House</h3>
 
                     <p>
-                        Site para hamburgueria com cardápio
-                        e chamada para pedidos.
+                        Site moderno para hamburgueria,
+                        com apresentação de produtos e contato.
                     </p>
 
                     <a
                         href="https://tiofejuca07.github.io/burger-house/"
-                        class="project-link"
-                        target="_blank">
+                        target="_blank"
+                        class="project-link">
                         Ver projeto →
                     </a>
 
@@ -973,27 +944,26 @@
             </div>
 
 
+            <!-- BARBEARIA -->
+
             <div class="project">
 
                 <div class="project-image">
-                    <strong>💈</strong>
+                    💈
                 </div>
 
                 <div class="project-info">
 
-                    <small>BARBEARIA</small>
-
-                    <h3>Barbearia Premium</h3>
+                    <h3>Black Crown Barber</h3>
 
                     <p>
-                        Site moderno para barbearia com serviços,
-                        equipe e agendamento.
+                        Site premium para barbearia moderna.
                     </p>
 
                     <a
                         href="https://tiofejuca07.github.io/barbearia-premium/"
-                        class="project-link"
-                        target="_blank">
+                        target="_blank"
+                        class="project-link">
                         Ver projeto →
                     </a>
 
@@ -1002,27 +972,26 @@
             </div>
 
 
+            <!-- CLÍNICA -->
+
             <div class="project">
 
                 <div class="project-image">
-                    <strong>✨</strong>
+                    🏥
                 </div>
 
                 <div class="project-info">
-
-                    <small>ESTÉTICA</small>
 
                     <h3>Clínica Bella Vita</h3>
 
                     <p>
-                        Site elegante para clínica estética
-                        e serviços de beleza.
+                        Página profissional para clínica de saúde.
                     </p>
 
                     <a
                         href="https://tiofejuca07.github.io/clinica-premium/"
-                        class="project-link"
-                        target="_blank">
+                        target="_blank"
+                        class="project-link">
                         Ver projeto →
                     </a>
 
@@ -1031,27 +1000,26 @@
             </div>
 
 
+            <!-- RESTAURANTE -->
+
             <div class="project">
 
                 <div class="project-image">
-                    <strong>🍝</strong>
+                    🍝
                 </div>
 
                 <div class="project-info">
-
-                    <small>GASTRONOMIA</small>
 
                     <h3>La Tavola</h3>
 
                     <p>
-                        Site sofisticado para restaurante
-                        italiano.
+                        Site elegante para restaurante italiano.
                     </p>
 
                     <a
                         href="https://tiofejuca07.github.io/restaurante-premium/"
-                        class="project-link"
-                        target="_blank">
+                        target="_blank"
+                        class="project-link">
                         Ver projeto →
                     </a>
 
@@ -1060,27 +1028,26 @@
             </div>
 
 
+            <!-- AUTO -->
+
             <div class="project">
 
                 <div class="project-image">
-                    <strong>🚗</strong>
+                    🚗
                 </div>
 
                 <div class="project-info">
-
-                    <small>AUTOMOTIVO</small>
 
                     <h3>Auto Prime</h3>
 
                     <p>
-                        Site profissional para centro automotivo
-                        e oficina mecânica.
+                        Site profissional para centro automotivo.
                     </p>
 
                     <a
                         href="https://tiofejuca07.github.io/auto-prime/"
-                        class="project-link"
-                        target="_blank">
+                        target="_blank"
+                        class="project-link">
                         Ver projeto →
                     </a>
 
@@ -1088,35 +1055,33 @@
 
             </div>
 
+
+            <!-- IMOBILIÁRIA -->
 
             <div class="project">
 
                 <div class="project-image">
-                    <strong>🏠</strong>
+                    🏠
                 </div>
 
                 <div class="project-info">
 
-                    <small>IMOBILIÁRIO</small>
-
                     <h3>PrimeHaus</h3>
 
                     <p>
-                        Site premium para imobiliária
-                        e imóveis de alto padrão.
+                        Site moderno para imobiliária.
                     </p>
 
                     <a
                         href="https://tiofejuca07.github.io/imobiliaria-premium/"
-                        class="project-link"
-                        target="_blank">
+                        target="_blank"
+                        class="project-link">
                         Ver projeto →
                     </a>
 
                 </div>
 
             </div>
-
 
         </div>
 
@@ -1124,6 +1089,8 @@
 
 </section>
 
+
+<!-- BENEFÍCIOS -->
 
 <section class="benefits">
 
@@ -1131,32 +1098,31 @@
 
         <div class="section-title">
 
-            <small>POR QUE A SEVEN DIGITAL?</small>
+            <small>Por que escolher a Seven Digital</small>
 
-            <h2>Seu negócio merece mais</h2>
+            <h2>Mais que um site</h2>
 
             <p>
-                Não entregamos apenas uma página.
-                Criamos uma presença digital pensada para o seu negócio.
+                Criamos soluções pensando no resultado do seu negócio.
             </p>
 
         </div>
 
 
-        <div class="benefit-grid">
+        <div class="benefits-grid">
 
 
             <div class="benefit">
 
-                <div class="benefit-icon">⚡</div>
+                <div class="check">✓</div>
 
                 <div>
 
-                    <h3>Visual profissional</h3>
+                    <h3>Design profissional</h3>
 
                     <p>
-                        Um site moderno transmite mais confiança
-                        para seus clientes.
+                        Sua empresa com uma presença digital
+                        moderna e confiável.
                     </p>
 
                 </div>
@@ -1166,15 +1132,15 @@
 
             <div class="benefit">
 
-                <div class="benefit-icon">📱</div>
+                <div class="check">✓</div>
 
                 <div>
 
                     <h3>Responsivo</h3>
 
                     <p>
-                        Seu site funciona corretamente em celular,
-                        tablet e computador.
+                        Seu projeto funcionando corretamente
+                        em celular, tablet e computador.
                     </p>
 
                 </div>
@@ -1184,15 +1150,15 @@
 
             <div class="benefit">
 
-                <div class="benefit-icon">🎯</div>
+                <div class="check">✓</div>
 
                 <div>
 
                     <h3>Foco em conversão</h3>
 
                     <p>
-                        Estrutura pensada para transformar visitantes
-                        em contatos e oportunidades.
+                        Estruturas pensadas para transformar
+                        visitantes em contatos e clientes.
                     </p>
 
                 </div>
@@ -1202,22 +1168,21 @@
 
             <div class="benefit">
 
-                <div class="benefit-icon">🤝</div>
+                <div class="check">✓</div>
 
                 <div>
 
-                    <h3>Atendimento próximo</h3>
+                    <h3>Atendimento personalizado</h3>
 
                     <p>
-                        Você acompanha o projeto e entende
-                        cada etapa do desenvolvimento.
+                        Cada projeto é desenvolvido de acordo
+                        com a necessidade do cliente.
                     </p>
 
                 </div>
 
             </div>
 
-
         </div>
 
     </div>
@@ -1225,20 +1190,26 @@
 </section>
 
 
-<section class="testimonials">
+<!-- DEPOIMENTOS -->
+
+<section>
 
     <div class="container">
 
         <div class="section-title">
 
-            <small>EXPERIÊNCIA</small>
+            <small>Experiência</small>
 
-            <h2>O que buscamos entregar</h2>
+            <h2>O que nossos clientes procuram</h2>
+
+            <p>
+                Soluções simples, profissionais e eficientes.
+            </p>
 
         </div>
 
 
-        <div class="testimonial-grid">
+        <div class="testimonials">
 
 
             <div class="testimonial">
@@ -1246,11 +1217,14 @@
                 <div class="stars">★★★★★</div>
 
                 <p>
-                    "Um projeto bonito é importante, mas uma
-                    solução que ajuda o negócio a vender é ainda melhor."
+                    "Precisava de uma presença profissional
+                    para minha empresa e o resultado ficou excelente."
                 </p>
 
-                <strong>Seven Digital</strong>
+                <div class="person">
+                    Cliente demonstrativo
+                    <span>Empresário</span>
+                </div>
 
             </div>
 
@@ -1260,11 +1234,14 @@
                 <div class="stars">★★★★★</div>
 
                 <p>
-                    "Cada negócio tem uma necessidade diferente.
-                    Por isso, cada projeto é pensado de forma personalizada."
+                    "O projeto ficou muito mais profissional
+                    do que eu imaginava."
                 </p>
 
-                <strong>Seven Digital</strong>
+                <div class="person">
+                    Cliente demonstrativo
+                    <span>Prestador de serviços</span>
+                </div>
 
             </div>
 
@@ -1274,14 +1251,16 @@
                 <div class="stars">★★★★★</div>
 
                 <p>
-                    "Tecnologia deve simplificar o trabalho,
-                    melhorar o atendimento e abrir novas oportunidades."
+                    "Precisava de uma página para divulgar
+                    meu negócio e facilitar o contato."
                 </p>
 
-                <strong>Seven Digital</strong>
+                <div class="person">
+                    Cliente demonstrativo
+                    <span>Empreendedor</span>
+                </div>
 
             </div>
-
 
         </div>
 
@@ -1289,44 +1268,50 @@
 
 </section>
 
+
+<!-- CTA -->
 
 <section class="cta">
 
     <div class="container">
 
-        <h2>
-            Vamos tirar sua ideia do papel?
-        </h2>
+        <div class="cta-box">
 
-        <p>
-            Conte o que você precisa e vamos encontrar
-            uma solução digital para o seu negócio.
-        </p>
+            <h2>Pronto para colocar seu negócio no digital?</h2>
 
-        <a
-            href="https://wa.me/5500000000000"
-            class="btn btn-primary">
-            💬 Solicitar orçamento
-        </a>
+            <p>
+                Conte para nós o que você precisa e vamos encontrar
+                a melhor solução para o seu projeto.
+            </p>
+
+            <a
+                href="https://wa.me/5511914425820?text=Ol%C3%A1!%20Quero%20fazer%20um%20projeto%20com%20a%20Seven%20Digital.%20Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es."
+                target="_blank"
+                class="btn btn-primary">
+                Solicitar orçamento
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<section class="contact" id="contato">
+<!-- CONTATO -->
+
+<section id="contato">
 
     <div class="container">
 
         <div class="section-title">
 
-            <small>CONTATO</small>
+            <small>Contato</small>
 
             <h2>Vamos conversar?</h2>
 
             <p>
-                Entre em contato e explique o que você gostaria
-                de criar.
+                Entre em contato e explique o que você precisa.
             </p>
 
         </div>
@@ -1337,39 +1322,43 @@
 
             <div class="contact-box">
 
-                <div class="contact-icon">📱</div>
-
-                <h3>WhatsApp</h3>
+                <h3>Seven Digital</h3>
 
                 <p>
-                    Atendimento direto e rápido.
+                    Soluções digitais para empresas,
+                    profissionais e empreendedores.
                 </p>
+
+                <div class="contact-item">
+                    📱 WhatsApp: (11) 91442-5820
+                </div>
+
+                <div class="contact-item">
+                    🌐 Atendimento online
+                </div>
+
+                <div class="contact-item">
+                    🚀 Sites • Landing Pages • Automação • IA
+                </div>
 
             </div>
 
 
             <div class="contact-box">
 
-                <div class="contact-icon">🌐</div>
-
-                <h3>Projetos personalizados</h3>
+                <h3>Fale conosco</h3>
 
                 <p>
-                    Sites, páginas, formulários e automações.
+                    Clique no botão abaixo para iniciar
+                    uma conversa pelo WhatsApp.
                 </p>
 
-            </div>
-
-
-            <div class="contact-box">
-
-                <div class="contact-icon">🚀</div>
-
-                <h3>Vamos começar</h3>
-
-                <p>
-                    Sua próxima solução digital começa aqui.
-                </p>
+                <a
+                    href="https://wa.me/5511914425820?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Seven%20Digital%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+                    target="_blank"
+                    class="btn btn-primary">
+                    💬 Chamar no WhatsApp
+                </a>
 
             </div>
 
@@ -1381,26 +1370,37 @@
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-    <div class="footer-logo">
-        SEVEN<span>DIGITAL</span>
-    </div>
+    <div class="container">
 
-    <p>
-        © 2026 Seven Digital — Sites, automação e soluções digitais.
-    </p>
+        <p>
+            © 2026 Seven Digital. Todos os direitos reservados.
+        </p>
+
+        <p style="margin-top:8px;">
+            Sites • Landing Pages • Automação • Inteligência Artificial
+        </p>
+
+    </div>
 
 </footer>
 
 
+<!-- WHATSAPP FLUTUANTE -->
+
 <a
-    href="https://wa.me/5511914425820"
+    href="https://wa.me/5511914425820?text=Ol%C3%A1!%20Conheci%20a%20Seven%20Digital%20pelo%20site%20e%20gostaria%20de%20conhecer%20os%20servi%C3%A7os."
+    target="_blank"
     class="whatsapp"
     aria-label="Falar no WhatsApp">
+
     ☎
+
 </a>
 
 
 </body>
-  </html>
+</html>
