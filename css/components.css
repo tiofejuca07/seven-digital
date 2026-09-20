@@ -1,0 +1,482 @@
+/* ==========================================================================
+   COMPONENTES — header, menu, botões, chips, efeitos reutilizáveis
+   ========================================================================== */
+
+/* ---------- Logo (arquivos SVG vetoriais: assets/img/logo-header.svg e logo-footer.svg) ---------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  flex: none;
+  color: var(--white);
+}
+.brand img { height: 34px; width: auto; filter: drop-shadow(0 0 14px rgba(217, 169, 40, 0.28)); }
+.brand--footer img { height: auto; width: clamp(170px, 46vw, 210px); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid transparent;
+  background: linear-gradient(to bottom, rgba(5, 5, 5, 0.72), rgba(5, 5, 5, 0));
+  transition: height 0.4s var(--ease), background 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+.site-header.is-scrolled {
+  height: 64px;
+  background: rgba(5, 5, 5, 0.72);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  border-bottom-color: var(--line-gold-soft);
+}
+.site-header.is-menu-open {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nav-desktop { display: none; }
+.nav-desktop ul { display: flex; align-items: center; gap: clamp(20px, 2.6vw, 38px); }
+.nav-desktop a {
+  position: relative;
+  padding: 8px 0;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gray);
+  transition: color var(--t-fast);
+}
+.nav-desktop a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease);
+}
+.nav-desktop a:hover,
+.nav-desktop a[aria-current] { color: var(--white); }
+.nav-desktop a:hover::after,
+.nav-desktop a[aria-current]::after { transform: scaleX(1); transform-origin: left; }
+
+.site-header .header-cta { display: none; flex: none; }
+
+/* Botão hambúrguer */
+.menu-toggle {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--line-gold);
+  background: rgba(5, 5, 5, 0.5);
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.menu-toggle:hover { background: rgba(217, 169, 40, 0.1); }
+.menu-toggle span {
+  position: absolute;
+  left: 13px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--white);
+  transition: transform 0.45s var(--ease), width 0.45s var(--ease), top 0.45s var(--ease), background 0.3s;
+}
+.menu-toggle span:nth-child(1) { top: 18px; width: 22px; }
+.menu-toggle span:nth-child(2) { top: 28px; width: 14px; background: var(--gold); }
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { top: 23px; width: 22px; transform: rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { top: 23px; width: 22px; transform: rotate(-45deg); }
+
+/* ---------- Menu mobile (tela cheia) ---------- */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--header-h) + 16px) var(--gutter) max(28px, env(safe-area-inset-bottom));
+  background:
+    radial-gradient(120% 60% at 100% 0%, rgba(217, 169, 40, 0.18), transparent 60%),
+    radial-gradient(90% 50% at 0% 100%, rgba(217, 169, 40, 0.1), transparent 60%),
+    rgba(5, 5, 5, 0.97);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transition: opacity 0.45s var(--ease), visibility 0s 0.45s;
+}
+.menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.45s var(--ease), visibility 0s;
+}
+html.menu-lock { overflow: hidden; }
+.menu-inner { margin-block: auto; }
+.menu-list li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.menu.is-open .menu-list li {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(0.06s * var(--i) + 0.12s);
+}
+.menu-list a {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 7.4vw, 2.3rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  transition: color var(--t-fast), padding-left 0.45s var(--ease);
+}
+.menu-list a span {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+.menu-list a:hover,
+.menu-list a[aria-current] { color: var(--gold-light); padding-left: 8px; }
+.menu-actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.menu.is-open .menu-actions { opacity: 1; transform: none; transition-delay: 0.5s; }
+.menu-foot { margin-top: 20px; font-size: 0.85rem; color: var(--gray-2); }
+
+/* ---------- Botões ---------- */
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+  min-height: 54px;
+  padding: 0 30px;
+  border-radius: var(--r-m);
+  border: 1px solid transparent;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), background 0.4s, border-color 0.4s, color 0.4s;
+}
+.btn > * { position: relative; z-index: 1; }
+.btn .i { width: 1.35em; height: 1.35em; transition: transform 0.45s var(--ease); }
+.btn:hover .i-arrow { transform: translateX(5px); }
+.btn:active { transform: translateY(0) scale(0.98); }
+
+.btn-gold {
+  background: var(--gold-grad);
+  color: var(--black);
+  box-shadow: 0 10px 34px -10px rgba(217, 169, 40, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.btn-gold::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.6) 50%, transparent 70%);
+  transform: translateX(-130%);
+  transition: transform 0.9s var(--ease);
+}
+.btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 44px -8px rgba(217, 169, 40, 0.75), 0 0 0 1px rgba(242, 207, 114, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.btn-gold:hover::after { transform: translateX(130%); }
+
+.btn-outline {
+  color: var(--white);
+  border-color: var(--line-gold);
+  background: rgba(255, 255, 255, 0.02);
+}
+.btn-outline:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-light);
+  background: rgba(217, 169, 40, 0.1);
+  box-shadow: 0 0 34px rgba(217, 169, 40, 0.2);
+}
+
+.btn-sm { min-height: 44px; padding: 0 22px; font-size: 0.7rem; }
+.btn-lg { min-height: 58px; padding: 0 34px; }
+.btn-block { width: 100%; white-space: normal; }
+
+/* Link com sublinhado animado */
+.link-u {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+.link-u::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease);
+}
+.link-u:hover::after { transform: scaleX(1); transform-origin: left; }
+.link-u:hover .i-arrow { transform: translateX(4px); }
+.link-u .i { width: 1.1em; height: 1.1em; transition: transform 0.45s var(--ease); }
+
+/* ---------- Chips / tags / badges ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--gray);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast), box-shadow var(--t-fast);
+}
+.chip .i { width: 1.15em; height: 1.15em; color: var(--gold); }
+button.chip { min-height: 44px; }
+button.chip:hover { color: var(--white); border-color: var(--line-gold); }
+button.chip.is-active {
+  color: var(--black);
+  background: var(--gold-grad);
+  border-color: transparent;
+  box-shadow: 0 8px 26px -10px rgba(217, 169, 40, 0.7);
+}
+
+.badge-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line-gold);
+  background: rgba(5, 5, 5, 0.72);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--gold-light);
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.badge-demo::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ---------- Ícone em moldura ---------- */
+.icon-tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  border: 1px solid var(--line-gold);
+  background: linear-gradient(145deg, rgba(217, 169, 40, 0.14), rgba(217, 169, 40, 0.02));
+  color: var(--gold-light);
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease), background 0.6s;
+}
+.icon-tile .i { width: 26px; height: 26px; }
+
+/* ---------- Cabeçalho de seção ---------- */
+.section-head { max-width: 920px; margin-bottom: clamp(40px, 6vw, 72px); }
+.section-head h2 {
+  font-size: clamp(1.85rem, 5.2vw, 3.3rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+.section-head p {
+  margin-top: 20px;
+  max-width: 58ch;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+}
+.section-head .eyebrow { margin-bottom: 20px; }
+
+/* ---------- Efeito "spotlight" que segue o cursor nos cards ---------- */
+.fx { position: relative; isolation: isolate; }
+.fx::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(217, 169, 40, 0.17), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+.fx:hover::before { opacity: 1; }
+
+/* ---------- Glow do cursor (desktop) ---------- */
+.cursor-glow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  width: 560px;
+  height: 560px;
+  margin: -280px 0 0 -280px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(217, 169, 40, 0.085), transparent 62%);
+  opacity: 0;
+  transition: opacity 0.6s;
+  will-change: transform;
+}
+.cursor-glow.is-on { opacity: 1; }
+@media (hover: none), (pointer: coarse) { .cursor-glow { display: none; } }
+
+/* ---------- Botão flutuante do WhatsApp ---------- */
+.wa-float {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  background: radial-gradient(circle at 30% 25%, #1e1e1e, #050505 70%);
+  color: var(--gold-light);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 26px rgba(217, 169, 40, 0.3);
+  transition: transform 0.45s var(--ease), background 0.35s, color 0.35s, box-shadow 0.35s;
+}
+.wa-float .i { width: 30px; height: 30px; stroke-width: 1.5; }
+.wa-float::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  animation: wa-ring 3.4s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes wa-ring {
+  0% { transform: scale(1); opacity: 0.55; }
+  70%, 100% { transform: scale(1.7); opacity: 0; }
+}
+.wa-float:hover {
+  transform: scale(1.08);
+  background: var(--gold-grad);
+  color: var(--black);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6), 0 0 40px rgba(217, 169, 40, 0.55);
+}
+.wa-tip {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line-gold);
+  background: rgba(10, 10, 10, 0.94);
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(8px, -50%);
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+.wa-float:hover .wa-tip,
+.wa-float:focus-visible .wa-tip { opacity: 1; transform: translate(0, -50%); }
+@media (hover: none) { .wa-tip { display: none; } }
+
+@media (max-width: 420px) {
+  .btn { padding: 0 22px; letter-spacing: 0.09em; }
+  .btn-lg { padding: 0 22px; }
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 1024px) {
+  .brand img { height: 40px; }
+  .nav-desktop { display: block; }
+  .site-header .header-cta { display: inline-flex; }
+  .menu-toggle, .menu { display: none; }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .nav-desktop ul { gap: 18px; }
+  .nav-desktop a { font-size: 0.68rem; letter-spacing: 0.1em; }
+  .site-header .header-cta { padding: 0 16px; letter-spacing: 0.09em; }
+  .brand img { height: 36px; }
+}

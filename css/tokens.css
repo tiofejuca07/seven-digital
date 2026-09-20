@@ -1,0 +1,49 @@
+/* ==========================================================================
+   SEVEN DIGITAL — Design tokens
+   Identidade: BLACK + GOLD + WHITE · Luxury Tech
+   ========================================================================== */
+
+:root {
+  /* Paleta oficial */
+  --black: #050505;
+  --black-2: #0a0a0a;
+  --gold: #d9a928;
+  --gold-light: #f2cf72;
+  --white: #ffffff;
+  --gray: #b8b8b8;
+
+  /* Derivados (apenas para profundidade / superfícies) */
+  --gold-deep: #a67f12;
+  --black-3: #111111;
+  --gray-2: #8f8f8f;
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-gold: rgba(217, 169, 40, 0.3);
+  --line-gold-soft: rgba(217, 169, 40, 0.16);
+
+  --gold-grad: linear-gradient(120deg, #f2cf72 0%, #d9a928 52%, #b98a16 100%);
+  --gold-text: linear-gradient(100deg, #f2cf72 0%, #d9a928 55%, #f2cf72 100%);
+  --glow: 0 0 44px rgba(217, 169, 40, 0.22);
+
+  /* Tipografia */
+  --font-display: "Sora", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Forma */
+  --r-s: 10px;
+  --r-m: 14px;
+  --r-l: 22px;
+
+  /* Movimento */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 0.3s;
+  --t-med: 0.5s;
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: clamp(20px, 5vw, 40px);
+  --section-y: clamp(72px, 10vw, 128px);
+  --header-h: 72px;
+}

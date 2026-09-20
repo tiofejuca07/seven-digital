@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_backup/
+
+Sitemap: https://7sevendigital.com.br/sitemap.xml
